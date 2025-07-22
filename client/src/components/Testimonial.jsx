@@ -1,6 +1,7 @@
 import { assets } from "../assets/assets";
 
 const Testimonial = () => {
+
   const dummyTestimonialData = [
     {
       image:
@@ -43,7 +44,7 @@ const Testimonial = () => {
       </div>
       <div className="flex flex-wrap mt-10 justify-center">
         {dummyTestimonialData.map((testimonial, index) => (
-          <div
+          <div  data-aos-delay={index * 200} data-aos="flip-right"
             key={index}
             className="p-8 m-4 max-w-xs rounded-lg bg-[#FDFDFE] shadow-lg border border-gray-100 hover:-translate-y-1 transition duration-300 cursor-pointer"
           >

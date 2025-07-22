@@ -50,7 +50,7 @@ const Sidebar = ({ sidebar, setSidebar }) => {
               onClick={() => setSidebar(false)}
               className={({
                 isActive,
-              }) => `px-3.5 py-2.5 flex items-center gap-3 rounded
+              }) => `px-3.5 py-2.5 flex items-center gap-3 rounded transition-all duration-200
            ${
              isActive
                ? "bg-gradient-to-r from-[#3C81F6] to-[#9234EA] text-white"
@@ -84,7 +84,7 @@ const Sidebar = ({ sidebar, setSidebar }) => {
           </div>
         </div>
         <LogOut
-          onClick={() => signOut}
+          onClick={() => signOut()}
           className="w-4.5 text-gray-400 hover:text-gray-700 transition crusor-pointer"
         />
       </div>

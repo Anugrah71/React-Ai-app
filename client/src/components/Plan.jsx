@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { PricingTable } from "@clerk/clerk-react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Plan = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false,
+    });
+  }, []);
   return (
     <div className="max-w-2xl mx-auto z-20 my-30">
       <div className="text-center">
@@ -11,8 +19,8 @@ const Plan = () => {
           content creation needs.
         </p>
       </div>
-      <div className="mt-14 max-sm:mx-8">
-        <PricingTable />
+      <div data-aos="flip-down" className="mt-14 max-sm:mx-8">
+        <PricingTable  />
       </div>
     </div>
   );

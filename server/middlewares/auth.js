@@ -2,14 +2,18 @@
 
 import { clerkClient } from "@clerk/express";
 
+
 export const auth = async (req, res, next) => {
   try {
     const { userId, has } = await req.auth();
     const hasPremiumPlan = await has({ plan: "premium" });
     const user = await clerkClient.users.getUser(userId);
-    if (!hasPremiumPlan && user.publicMetadata.free_usage) {
-      req.free_usage = user.privateMetadata.free_usage;
+
+    // Check if user has free_usage in publicMetadata, if not initialize it
+    if (!hasPremiumPlan && user.publicMetadata.free_usage !== undefined) {
+      req.free_usage = user.publicMetadata.free_usage;
     } else {
+      // Initialize free_usage if it doesn't exist
       await clerkClient.users.updateUserMetadata(userId, {
         publicMetadata: {
           free_usage: 0,
@@ -21,7 +25,8 @@ export const auth = async (req, res, next) => {
     req.plan = hasPremiumPlan ? "premium" : "free";
     next();
   } catch (error) {
-    res.json({
+    console.error("Auth middleware error:", error);
+    res.status(500).json({
       success: false,
       message: error.message,
     });

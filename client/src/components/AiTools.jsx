@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { AiToolsData } from "../assets/assets";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "@clerk/clerk-react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const AiTools = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false,
+    });
+  }, []);
   const navigate = useNavigate();
   const { user } = useUser();
   return (
@@ -18,26 +26,34 @@ const AiTools = () => {
         </p>
       </div>
       <div className="flex flex-wrap mt-10 justify-center">
-        {AiToolsData.map((tool, index) => (
-          <div
-            key={tool.id || tool.title || `tool-${index}`}
-            className="p-8 m-4 max-w-xs rounded-lg bg-[#FDFDFE]
+        {AiToolsData.map((tool, index) => {
+          let aosType;
+          if (index % 3 === 0) aosType = "fade-right";
+          else if (index % 3 === 1) aosType = "fade-up";
+          else aosType = "fade-left";
+
+          return (
+            <div
+              data-aos={aosType}
+              key={tool.id || tool.title || `tool-${index}`}
+              className="p-8 m-4 max-w-xs rounded-lg bg-[#FDFDFE]
         shadow-lg border border-gray-100 hover:-translate-y-1 transition-all
         duration-300 cursor-pointer"
-            onClick={() => user && navigate(tool.path)}
-          >
-            <tool.Icon
-              className="w-12 h-12 p-3 text-white rounded-xl"
-              style={{
-                background: `linear-gradient(to bottom, ${tool.bg.from}, ${tool.bg.to})`,
-              }}
-            />
-            <h3 className="mt-6 mb-3 text-lg font-semibold">{tool.title}</h3>
-            <p className="text-gray-400 text-sm max-w-[95%]">
-              {tool.description}
-            </p>
-          </div>
-        ))}
+              onClick={() => user && navigate(tool.path)}
+            >
+              <tool.Icon
+                className="w-12 h-12 p-3 text-white rounded-xl"
+                style={{
+                  background: `linear-gradient(to bottom, ${tool.bg.from}, ${tool.bg.to})`,
+                }}
+              />
+              <h3 className="mt-6 mb-3 text-lg font-semibold">{tool.title}</h3>
+              <p className="text-gray-400 text-sm max-w-[95%]">
+                {tool.description}
+              </p>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
