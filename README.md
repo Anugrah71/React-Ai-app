@@ -528,6 +528,8 @@ This project is created for educational purposes. Feel free to use it as a refer
 
 ---
 
-**Built with ❤️ for learning and experimentation**
+## ⚠️ Disclaimer
 
-_This project represents my journey in modern web development, AI integration, and full-stack application development. It's a testament to continuous learning and exploration of new technologies._
+This project is **not an original creation**. It was built by following a YouTube tutorial to understand React, API integration, and modern web development practices.  
+The purpose of this repository is purely **educational**.
+
