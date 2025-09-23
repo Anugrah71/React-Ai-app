@@ -453,26 +453,18 @@ Fully responsive design that adapts beautifully to mobile devices and tablets.
 
 ###  Planned Features
 
-1. **Advanced AI Models**: Integration with Claude, Gemini, and other AI providers
-2. **Collaboration Tools**: Real-time collaboration on content creation
-3. **Template Library**: Pre-built templates for various content types
-4. **Analytics Dashboard**: Detailed usage analytics and insights
-5. **API Access**: Public API for third-party integrations
-6. **Mobile App**: Native mobile application for iOS and Android
-7. **Advanced Editing**: Rich text editor with AI-powered suggestions
-8. **Content Scheduling**: Schedule and automate content publishing
-9. **Team Management**: Multi-user accounts with role-based permissions
-10. **Advanced Export**: Multiple export formats (PDF, DOCX, HTML)
+1. Add more AI tools (like text summarizer or simple image filters)
+2. Improve UI styling and responsiveness
+3. Add a simple dashboard to see past creations
+4. Add “Save” or “Download” feature for content
+5. Minor animation improvements
 
 ### 🔧 Technical Improvements
 
-1. **Performance Optimization**: Code splitting and lazy loading
-2. **Caching Strategy**: Redis integration for faster response times
-3. **Database Optimization**: Query optimization and indexing
-4. **Testing Suite**: Comprehensive unit and integration tests
-5. **CI/CD Pipeline**: Automated testing and deployment
-6. **Monitoring**: Application performance monitoring and logging
-7. **Security Enhancements**: Advanced security measures and audit logs
+1. Clean up code and remove unused files
+2. Optimize image loading and performance
+3. Add basic testing for components
+
 
 ##  Learning Outcomes
 
@@ -532,5 +524,6 @@ This project is created for educational purposes. Feel free to use it as a refer
 
 This project is **not an original creation**. It was built by following a YouTube tutorial to understand React, API integration, and modern web development practices.  
 The purpose of this repository is purely **educational**.
+
 
 
