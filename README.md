@@ -1,28 +1,28 @@
-# 🚀 AI Content Creation Platform - React Application
+#  AI Content Creation Platform - React Application
 
 ![Project Banner](https://img.shields.io/badge/Status-Learning%20Project-blue) ![React](https://img.shields.io/badge/React-19.1.0-blue) ![Node.js](https://img.shields.io/badge/Node.js-Backend-green) ![AI](https://img.shields.io/badge/AI-Powered-purple)
 
 > **Note**: This is a personal learning project created to explore and implement modern web development technologies, AI integration, and full-stack development concepts. The project represents my journey in understanding React, Node.js, AI APIs, and modern web development practices.
 
-## 📋 Table of Contents
+##  Table of Contents
 
-- [🎯 Project Overview](#-project-overview)
-- [✨ Features](#-features)
-- [🛠️ Technology Stack](#️-technology-stack)
-- [📁 Project Structure](#-project-structure)
-- [🚀 Getting Started](#-getting-started)
-- [📱 Pages & Components](#-pages--components)
-- [🔧 API Endpoints](#-api-endpoints)
-- [🎨 UI/UX Design](#-uiux-design)
-- [📸 Screenshots](#-screenshots)
-- [🔮 Future Enhancements](#-future-enhancements)
-- [📚 Learning Outcomes](#-learning-outcomes)
+- [ Project Overview](#-project-overview)
+- [ Features](#-features)
+- [ Technology Stack](#️-technology-stack)
+- [ Project Structure](#-project-structure)
+- [ Getting Started](#-getting-started)
+- [ Pages & Components](#-pages--components)
+- [ API Endpoints](#-api-endpoints)
+- [ UI/UX Design](#-uiux-design)
+- [ Screenshots](#-screenshots)
+- [ Future Enhancements](#-future-enhancements)
+- [ Learning Outcomes](#-learning-outcomes)
 
-## 🎯 Project Overview
+##  Project Overview
 
 This AI-powered content creation platform is a full-stack MERN application that leverages artificial intelligence to help users create various types of content. The platform provides a suite of AI tools for content generation, image manipulation, and document analysis.
 
-### 🎯 Purpose
+###  Purpose
 
 This project was built as a learning exercise to:
 
@@ -32,9 +32,9 @@ This project was built as a learning exercise to:
 - Practice responsive design and modern UI/UX principles
 - Explore authentication and user management systems
 
-## ✨ Features
+##  Features
 
-### 🤖 AI Content Tools
+###  AI Content Tools
 
 1. **AI Article Writer**
 
@@ -72,7 +72,7 @@ This project was built as a learning exercise to:
    - Improvement suggestions
    - Professional feedback
 
-### 🌟 Platform Features
+###  Platform Features
 
 - **User Authentication** - Secure login/signup with Clerk
 - **Responsive Design** - Works on all devices
@@ -81,7 +81,7 @@ This project was built as a learning exercise to:
 - **Real-time Feedback** - Toast notifications for user actions
 - **Smooth Animations** - AOS animations for better UX
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 ### Frontend
 
@@ -112,7 +112,7 @@ This project was built as a learning exercise to:
 - **OpenAI API** - AI model integration
 - **Clerk** - Authentication and user management
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 React-app/
@@ -172,7 +172,7 @@ React-app/
 └── 📄 README.md                 # Project documentation
 ```
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -248,9 +248,9 @@ npm run dev
 - Frontend: http://localhost:5173
 - Backend: http://localhost:3000
 
-## 📱 Pages & Components
+##  Pages & Components
 
-### 🏠 Landing Page (Home.jsx)
+###  Landing Page (Home.jsx)
 
 - **Hero Section**: Eye-catching introduction with call-to-action buttons
 - **AI Tools Showcase**: Interactive grid displaying all available AI tools
@@ -265,58 +265,58 @@ npm run dev
 - **Usage Statistics**: User activity and usage metrics
 - **Quick Actions**: Fast access to most-used features
 
-### ✍️ AI Tools Pages
+###  AI Tools Pages
 
-#### 📝 Article Writer (WriteArticle.jsx)
+####  Article Writer (WriteArticle.jsx)
 
 - **Configuration Panel**: Topic input and length selection
 - **Real-time Preview**: Live markdown rendering of generated articles
 - **Length Options**: Short (500-800), Medium (800-1200), Long (1200+)
 - **Export Options**: Copy, download, or save to dashboard
 
-#### 🏷️ Blog Title Generator (BlogTitles.jsx)
+####  Blog Title Generator (BlogTitles.jsx)
 
 - **Keyword Input**: Target keyword specification
 - **Category Selection**: Choose from various content categories
 - **Multiple Suggestions**: Generate several title options
 - **SEO Optimization**: Titles optimized for search engines
 
-#### 🖼️ Image Generation (GenerateImage.jsx)
+####  Image Generation (GenerateImage.jsx)
 
 - **Prompt Input**: Detailed description for image generation
 - **Style Selection**: Various artistic styles (Anime, Realistic, etc.)
 - **Preview Gallery**: Display generated images
 - **Download & Share**: Save or share created images
 
-#### 🎨 Background Removal (RemoveBackground.jsx)
+####  Background Removal (RemoveBackground.jsx)
 
 - **File Upload**: Drag-and-drop or click to upload
 - **Real-time Processing**: AI-powered background removal
 - **Before/After Preview**: Compare original and processed images
 - **High-Quality Output**: Professional-grade results
 
-#### ✂️ Object Removal (RemoveObject.jsx)
+####  Object Removal (RemoveObject.jsx)
 
 - **Smart Detection**: AI identifies removable objects
 - **Precision Editing**: Accurate object removal
 - **Seamless Results**: Natural-looking final images
 - **Batch Processing**: Handle multiple images
 
-#### 📄 Resume Reviewer (ReviewResume.jsx)
+####  Resume Reviewer (ReviewResume.jsx)
 
 - **PDF Upload**: Support for resume document upload
 - **AI Analysis**: Comprehensive resume evaluation
 - **Improvement Suggestions**: Actionable feedback
 - **Score Rating**: Professional assessment scoring
 
-### 🌐 Community (Community.jsx)
+###  Community (Community.jsx)
 
 - **Public Gallery**: Showcase of published AI creations
 - **Like System**: User engagement and interaction
 - **Filter Options**: Browse by content type or popularity
 - **User Profiles**: Creator information and portfolios
 
-## 🔧 API Endpoints
+##  API Endpoints
 
 ### Authentication
 
@@ -397,7 +397,7 @@ POST /api/user/toggle-like/:id
 Response: { success, liked, message }
 ```
 
-## 🎨 UI/UX Design
+##  UI/UX Design
 
 ### Design Philosophy
 
@@ -427,31 +427,31 @@ Response: { success, liked, message }
 - **Loading States**: Spinners and skeleton screens
 - **Transitions**: Smooth page and component transitions
 
-## 📸 Screenshots
+##  Screenshots
 
-### 🏠 Landing Page
+###  Landing Page
 
 The homepage features a gradient background with a compelling hero section, showcasing all AI tools in an interactive grid layout.
 
-### 🎛️ Dashboard
+###  Dashboard
 
 Clean, organized dashboard with sidebar navigation and quick access to all AI tools and recent creations.
 
-### ✍️ Article Generator
+###  Article Generator
 
 Split-screen layout with configuration panel on the left and real-time markdown preview on the right.
 
-### 🖼️ Image Generation
+###  Image Generation
 
 Intuitive interface for creating AI-generated images with style options and instant preview.
 
-### 📱 Mobile Responsive
+###  Mobile Responsive
 
 Fully responsive design that adapts beautifully to mobile devices and tablets.
 
-## 🔮 Future Enhancements
+##  Future Enhancements
 
-### 🚀 Planned Features
+###  Planned Features
 
 1. **Advanced AI Models**: Integration with Claude, Gemini, and other AI providers
 2. **Collaboration Tools**: Real-time collaboration on content creation
@@ -474,9 +474,9 @@ Fully responsive design that adapts beautifully to mobile devices and tablets.
 6. **Monitoring**: Application performance monitoring and logging
 7. **Security Enhancements**: Advanced security measures and audit logs
 
-## 📚 Learning Outcomes
+##  Learning Outcomes
 
-### 🎯 Technical Skills Gained
+###  Technical Skills Gained
 
 1. **React Advanced Concepts**: Hooks, Context API, Performance optimization
 2. **Modern CSS**: TailwindCSS, Responsive design, CSS Grid/Flexbox
@@ -487,7 +487,7 @@ Fully responsive design that adapts beautifully to mobile devices and tablets.
 7. **Cloud Services**: Cloudinary for media management, Vercel for deployment
 8. **Developer Tools**: Vite, ESLint, Git workflow, Package management
 
-### 🌟 Soft Skills Developed
+###  Soft Skills Developed
 
 1. **Problem Solving**: Debugging complex issues and finding elegant solutions
 2. **Project Management**: Breaking down features into manageable tasks
@@ -495,7 +495,7 @@ Fully responsive design that adapts beautifully to mobile devices and tablets.
 4. **User Experience**: Designing intuitive and accessible interfaces
 5. **Code Quality**: Writing clean, maintainable, and scalable code
 
-### 💡 Key Learnings
+###  Key Learnings
 
 1. **State Management**: Efficient state handling in complex React applications
 2. **Performance**: Optimizing application performance and user experience
@@ -505,7 +505,7 @@ Fully responsive design that adapts beautifully to mobile devices and tablets.
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 This is a personal learning project, but feedback and suggestions are always welcome! Feel free to:
 
@@ -514,11 +514,11 @@ This is a personal learning project, but feedback and suggestions are always wel
 - Share improvement ideas
 - Provide code reviews
 
-## 📄 License
+##  License
 
 This project is created for educational purposes. Feel free to use it as a reference for your own learning journey.
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - **OpenAI** for providing powerful AI APIs
 - **Clerk** for seamless authentication solutions
@@ -532,4 +532,5 @@ This project is created for educational purposes. Feel free to use it as a refer
 
 This project is **not an original creation**. It was built by following a YouTube tutorial to understand React, API integration, and modern web development practices.  
 The purpose of this repository is purely **educational**.
+
 
