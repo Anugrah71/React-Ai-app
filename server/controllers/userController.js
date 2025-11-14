@@ -68,7 +68,27 @@ export const toggleLikeCreation = async (req, res) => {
     res.json({
       success: true,
       message,
-      creation
+      creation,
+    });
+  } catch (error) {
+    res.json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+export const getMostLikedCreations = async (req, res) => {
+  try {
+    const creations = await sql`
+      SELECT *, array_length(likes, 1) as like_count 
+      FROM creations 
+      WHERE publish = true
+      ORDER BY like_count DESC NULLS LAST
+    `;
+    res.json({
+      success: true,
+      creations,
     });
   } catch (error) {
     res.json({
