@@ -1,5 +1,12 @@
 import React from "react";
-import { Edit, Sparkles, ClipboardCopy, Download } from "lucide-react";
+import {
+  
+  Text,
+  Sparkles,
+  ClipboardCopy,
+  Download,
+  AlertCircle,
+} from "lucide-react";
 import { useState } from "react";
 import axios from "axios";
 import { useAuth } from "@clerk/clerk-react";
@@ -8,25 +15,23 @@ import Markdown from "react-markdown";
 
 axios.defaults.baseURL = import.meta.env.VITE_BASE_URL;
 
-const WriteArticle = () => {
-  const articalLength = [
-    { length: 800, text: "Short (500-800 words)" },
-    { length: 1200, text: "Medium (800-1200 words)" },
-    { length: 1600, text: "Long (1200+ words)" },
-  ];
-  const [selectedLength, setSelectedLength] = useState(articalLength[0]);
+const TextSummarizer = () => {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [content, setContent] = useState("");
   const { getToken } = useAuth();
+  const MaxChars = 5000;
+  const totalCount = input.length;
+  const remainingChars = MaxChars - totalCount;
+  const isOverLimit = remainingChars < 0;
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       setLoading(true);
-      const prompt = `Write an article on ${input} with ${selectedLength.text} words.`;
+      const prompt = `Summarize the following text in a few key paragraphs: ${input}`;
       const { data } = await axios.post(
-        "/api/ai/generate-article",
-        { prompt, length: selectedLength.length },
+        "/api/ai/generate-text-summarizer",
+        { prompt },
         {
           headers: {
             Authorization: `Bearer ${await getToken()}`,
@@ -57,6 +62,10 @@ const WriteArticle = () => {
     element.click();
     document.body.removeChild(element);
   };
+  const handleInputChange = (e) => {
+    setInput(e.target.value);
+  };
+
   return (
     <div
       className="h-full overflow-y-scroll  p-6 flex flex-wrap items-start
@@ -69,34 +78,40 @@ const WriteArticle = () => {
       >
         <div className="flex items-center gap-3">
           <Sparkles className="w-6 text-[#4A7AFF]" />
-          <h1 className="text-xl font-semibold">Article Configuration</h1>
+          <h1 className="text-xl font-semibold">AI Text Summarizer</h1>
         </div>
-        <p className="mt-6 text-sm font-medium">Article Topic</p>
-        <input
-          onChange={(e) => setInput(e.target.value)}
+        <p className="mt-6 text-sm font-medium">Paste your text to summarize</p>
+        <textarea
+          onChange={handleInputChange}
           value={input}
+          rows={10}
           type="text"
-          className="w-full p-2 px-3 mt-2 outline-none text-sm rounded
-border border-gray-300"
-          placeholder="The future of artifical intelligence is ..."
+          className={`w-full p-2 px-3 mt-2 outline-none text-sm rounded
+            border transition-all ${
+              isOverLimit ? "border-red-500" : "border-gray-300" 
+            }`}
+          placeholder="Paste your long article, notes, or any text here..."
           required
         />
-        <p className="mt-4 text-sm font-medium">Article Length</p>
-        <div className="mt-3 flex gap-3 flex-wrap sm:max-w-9/11">
-          {articalLength.map((item, index) => (
-            <span
-              onClick={() => setSelectedLength(item)}
-              className={`
-      text-xs px-4 py-1 border rounded-full cursor-pointer ${
-        selectedLength.length === item.length
-          ? "bg-blue-50 text-blue-700"
-          : "text-gray-500 border-gray-300"
-      }`}
-              key={index}
-            >
-              {item.text}
-            </span>
-          ))}
+        <div className="flex justify-between items-center mt-1">
+          <span className="text-xs text-gray-500">
+            {isOverLimit ? (
+              <span className="text-red-600 font-bold flex items-center gap-1">
+                <AlertCircle className="w-4 h-4" />
+                You are over the limit!
+              </span>
+            ) : (
+              "Character limit:"
+            )}
+          </span>
+
+          <p
+            className={`text-xs font-medium ${
+              isOverLimit ? "text-red-600" : "text-gray-500"
+            }`}
+          >
+            Total: {totalCount} / Remaining: {remainingChars}
+          </p>
         </div>
         <br />
         <button
@@ -108,9 +123,9 @@ border border-gray-300"
           {loading ? (
             <span className="w-4 h-4 my-1 rounded-full border-2 border-t-transparent animate-spin"></span>
           ) : (
-            <Edit className="w-5" />
+            <Text className="w-5" />
           )}
-          Generate article
+          Generate Summary
         </button>
       </form>
       {/* Right Side */}
@@ -120,8 +135,8 @@ border border-gray-300"
       >
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <Edit className="w-5 h-5 text-[#4A7AFF]" />
-            <h1 className="text-xl font-semibold">Generated article</h1>
+            <Text className="w-5 h-5 text-[#4A7AFF]" />
+            <h1 className="text-xl font-semibold">Generated Summary</h1>
           </div>
           {content && (
             <div className="flex gap-2">
@@ -145,8 +160,10 @@ border border-gray-300"
         {!content ? (
           <div className="flex flex-1 justify-center items-center">
             <div className="text-sm text-gray-500 flex flex-col items-center gap-5">
-              <Edit className="w-9 h-9" />
-              <p>Enter a topic and click "Generate article" to get started</p>
+              <Text className="w-9 h-9" />
+              <p>
+                Paste text above and click "Generate Summary" to get started
+              </p>
             </div>
           </div>
         ) : (
@@ -161,4 +178,4 @@ border border-gray-300"
   );
 };
 
-export default WriteArticle;
+export default TextSummarizer;

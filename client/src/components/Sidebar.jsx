@@ -4,6 +4,7 @@ import {
   Eraser,
   FileText,
   Hash,
+  Text,
   House,
   Image,
   LogOut,
@@ -19,6 +20,7 @@ const Sidebar = ({ sidebar, setSidebar }) => {
   const navItems = [
     { to: "/ai", label: "Dashboard", Icon: House },
     { to: "/ai/write-article", label: "Write Article", Icon: SquarePen },
+    { to: "/ai/text-summarizer", label: "TextSummarizer", Icon: Text },
     { to: "/ai/blog-title", label: "Blog Title", Icon: Hash },
     { to: "/ai/generate-image", label: "Generate Images", Icon: Image },
     { to: "/ai/remove-background", label: "Remove Background", Icon: Eraser },

@@ -76,6 +76,64 @@ export const generateArticle = async (req, res) => {
   }
 };
 
+export const generateTextSummarizer = async (req, res) => {
+  try {
+    console.log("=== generateTextSummarizer called ===");
+    const { userId } = req.auth();
+    const plan = req.plan;
+    const free_usage = req.free_usage;
+    const { prompt } = req.body;
+
+    console.log("API Key present:", !!process.env.GEMINI_API_KEY);
+
+    if (plan !== "premium" && free_usage >= 10) {
+      return res.json({
+        success: false,
+        message: "Limit reached. upgrade to continue",
+      });
+    }
+    console.log("Calleing Gemini API...");
+    const response = await openai.chat.completions.create({
+      model: "gemini-2.0-flash",
+      messages: [
+        {
+          role: "user",
+          content: prompt,
+        },
+      ],
+      temperature: 0.7,
+      max_tokens: 500,
+    });
+
+    const content = response.choices[0].message.content;
+
+    await sql`INSERT INTO creations (user_id, prompt, content, type) 
+    VALUES (${userId}, ${`Summarize: ${prompt.substring(
+      0,
+      50
+    )}...`}, ${content}, 'summary')`;
+
+    if (plan !== "premium") {
+      await clerkClient.users.updateUserMetadata(userId, {
+        publicMetadata: {
+          free_usage: free_usage + 1,
+        },
+      });
+    }
+
+    res.json({
+      success: true,
+      content: content,
+    });
+  } catch (error) {
+    console.error("Error in generateTextSummarizer:", error); // Log the error
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
 export const generateBlogTitle = async (req, res) => {
   try {
     const { userId } = req.auth();

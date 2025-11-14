@@ -258,7 +258,7 @@ npm run dev
 - **Pricing Plans**: Subscription tiers and features
 - **Footer**: Contact information and links
 
-### 🎛️ Dashboard (Dashboard.jsx)
+###  Dashboard (Dashboard.jsx)
 
 - **Sidebar Navigation**: Quick access to all AI tools
 - **Recent Creations**: Display of user's recent AI-generated content

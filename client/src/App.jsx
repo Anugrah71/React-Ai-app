@@ -13,6 +13,7 @@ import Community from "./pages/Community";
 import { useAuth } from "@clerk/clerk-react";
 import { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
+import TextSummarizer from "./pages/TextSummarizer";
 
 export const App = () => {
  
@@ -24,6 +25,7 @@ export const App = () => {
         <Route path="/ai" element={<Layout />}>
           <Route index element={<Dashboard />} />
           <Route path="write-article" element={<WriteArticle />} />
+          <Route path="text-summarizer" element={<TextSummarizer />} />
           <Route path="blog-title" element={<BlogTitles />} />
           <Route path="generate-image" element={<GenerareImage />} />
           <Route path="remove-background" element={<RemoveBackground />} />
