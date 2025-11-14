@@ -57,7 +57,7 @@ const TextSummarizer = () => {
     const element = document.createElement("a");
     const file = new Blob([content], { type: "text/plain;charset=utf-8" });
     element.href = URL.createObjectURL(file);
-    element.download = "generated article.txt";
+    element.download = "generated summary.txt";
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);
