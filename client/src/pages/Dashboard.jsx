@@ -11,6 +11,8 @@ axios.defaults.baseURL = import.meta.env.VITE_BASE_URL;
 const Dashboard = () => {
   const [creation, setCreation] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedValue, setSelectedValue] = useState("Recent");
+
   const { getToken } = useAuth();
 
   const getDashboardData = async () => {
@@ -30,6 +32,12 @@ const Dashboard = () => {
     }
     setLoading(false);
   };
+
+  const filteredCreations = creation.filter((item) => {
+    if (selectedValue === "Recent") return true;
+    return item.type === selectedValue;
+  });
+
   useEffect(() => {
     getDashboardData();
   }, []);
@@ -44,7 +52,10 @@ const Dashboard = () => {
         >
           <div className="text-slate-600">
             <p className="text-sm font-medium">Total Creations</p>
-            <h2 className="text-xl font-semibold">{console.log(creation.length)}{creation.length}</h2>
+            <h2 className="text-xl font-semibold">
+              {console.log(creation.length)}
+              {creation.length}
+            </h2>
           </div>
           <div
             className="bg-gradient-to-br from-[#3588F2] to-[#0BB0D7]
@@ -74,18 +85,36 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      {loading ? (
-        <div className="flex justify-center items-center h-3/4">
-          <div className="w-10 h-10 my-1 rounded-full border-3 border-primary border-t-transparent animate-spin"></div>
+      <div className="space-y-3">
+        <div className="flex justify-between items-center mt-6 mb-4">
+          <p className="font-medium text-slate-700">{selectedValue === "Recent" ? "Recent Creations" : `Recent ${selectedValue}s`}</p>
+
+          <select
+            value={selectedValue}
+            onChange={(e) => setSelectedValue(e.target.value)}
+            className="px-3 py-2 pr-8 border border-gray-200 rounded-lg text-sm 
+                text-slate-600 outline-none bg-white focus:border-primary/50 cursor-pointer"
+          >
+            <option value="Recent">Recent</option>
+            <option value="article">Article</option>
+            <option value="summary">Summary</option>
+            <option value="image">Image</option>
+            <option value="Resume-review">Resume-review</option>
+          </select>
         </div>
-      ) : (
-        <div className="space-y-3">
-          <p className="mt-6 mb-4">Recent Creations</p>
-          {creation.map((item) => (
-            <CreationItem key={item.id} item={item} />
-          ))}
-        </div>
-      )}
+
+        {loading ? (
+          <div className="flex justify-center items-center h-3/4">
+            <div className="w-10 h-10 my-1 rounded-full border-3 border-primary border-t-transparent animate-spin"></div>
+          </div>
+        ) : (
+          <div className="">
+            {filteredCreations.map((item) => (
+              <CreationItem key={item.id} item={item} />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
