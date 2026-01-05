@@ -4,8 +4,7 @@ A premium AI-powered content creation platform that helps writers, designers, an
 
 ---
 
-## Live Demo
- [Add Live URL here – Vercel / Netlify]
+## Live Demo: https://react-ai-app-client.vercel.app/
 
 ---
 
@@ -154,6 +153,7 @@ All routes are prefixed with `/api` and protected via authentication unless expl
  POST  `/toggle-like-creations`  Allows users to like or unlike a specific AI creation 
 ```
 ---
+
 
 
 
