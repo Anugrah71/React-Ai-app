@@ -135,7 +135,7 @@ All routes are prefixed with `/api` and protected via authentication unless expl
 ---
 
 ### AI Services (`/api/ai`)
-
+```text
  POST  `/generate-article`  Generates full-length AI-written articles based on user prompts 
  POST  `/generate-text-summarizer`  Summarizes long text into concise versions 
  POST  `/generate-blog-title`  Creates catchy and SEO-friendly blog titles 
@@ -143,16 +143,18 @@ All routes are prefixed with `/api` and protected via authentication unless expl
  POST  `/remove-image-background`  Removes background from uploaded images 
  POST  `/remove-image-object`  Removes specific objects from uploaded images 
  POST  `/resume-review`  Analyzes and reviews uploaded PDF resumes using AI 
-
+```
 ---
 
 ### User & Community (`/api/user`)
+```text
  GET  `/get-user-creations`  Fetches all AI-generated content created by the logged-in user 
  GET  `/get-publish-creations`  Retrieves AI creations shared publicly in the community gallery 
  GET  `/get-most-liked-creations`  Fetches the most liked and trending AI creations 
  POST  `/toggle-like-creations`  Allows users to like or unlike a specific AI creation 
-
+```
 ---
+
 
 
 
